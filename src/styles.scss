@@ -1,3 +1,33 @@
 body {
   background-color: #7945ff;
+  margin: 0;
 } /* You can add global styles to this file, and also import other style files */
+
+.heading {
+  font-family: "Space Grotesk Bold";
+
+  &__large {
+    font-size: 56px;
+    line-height: 71px;
+  }
+
+  &__medium {
+    font-size: 24px;
+    line-height: 31px;
+  }
+
+  &__small {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  &__x-small {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+@font-face {
+  font-family: "Space Grotesk Bold";
+  src: url("assets/fonts/static/SpaceGrotesk-Bold.ttf");
+}

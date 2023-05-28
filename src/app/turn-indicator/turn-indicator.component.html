@@ -1,0 +1,9 @@
+<div class="turn-indicator">
+  <img src="/assets/images/turn-background-red.svg" alt="Turn Indicator" />
+  <div class="turn-indicator__description">
+    <div class="heading heading__x-small">Player 1's turn</div>
+    <div class="heading heading__large">{{ gameService.time$ | async }}</div>
+  </div>
+</div>
+<button (click)="gameService.pauseTimer()">Pause</button>
+<button (click)="gameService.resumeTimer()">Resume</button>

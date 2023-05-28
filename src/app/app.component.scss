@@ -1,15 +1,14 @@
-#game {
-  height: 100vh;
+.game {
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  align-self: center;
   align-items: center;
+  height: 100vh;
+  position: relative;
 
-  .board {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px;
+  .turn-indicator {
+    position: absolute;
+    bottom: 50px;
+    z-index: 1000;
   }
 }

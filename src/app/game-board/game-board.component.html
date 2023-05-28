@@ -1,10 +1,30 @@
-<img
-  src="/assets/images/board-layer-black-large.svg"
-  alt="Board"
-  class="board-image"
-/>
-<img
-  src="/assets/images/board-layer-white-large.svg"
-  alt="Board"
-  class="board-image"
-/>
+<div class="board">
+  <img
+    src="/assets/images/board-layer-white-large.svg"
+    alt="Board"
+    id="board-layer-white"
+    class="board-part"
+  />
+  <img
+    src="/assets/images/board-layer-black-large.svg"
+    alt="Board"
+    id="board-layer-black"
+    class="board-part"
+  />
+  <div class="board-slots board-part">
+    <div *ngFor="let column of board" class="column">
+      <div *ngFor="let slot of column" class="slot">
+        <img
+          *ngIf="slot != null"
+          [src]="
+            slot == 'Red'
+              ? '/assets/images/counter-red-large.svg'
+              : '/assets/images/counter-yellow-large.svg'
+          "
+          alt="Board"
+        />
+      </div>
+      <img class="marker" [src]="'/assets/images/marker-red.svg'" alt="Board" />
+    </div>
+  </div>
+</div>
