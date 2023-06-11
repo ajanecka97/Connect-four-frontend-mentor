@@ -11,18 +11,28 @@
     id="board-layer-black"
     class="board-part"
   />
-  <div class="board-slots board-part">
-    <div *ngFor="let column of board" class="column">
+  <div
+    class="board-slots board-part"
+    *ngIf="gameService.board$ | async as board"
+  >
+    <div
+      *ngFor="let column of board; let i = index"
+      class="column"
+      (click)="gameService.move(i)"
+    >
       <div *ngFor="let slot of column" class="slot">
         <img
-          *ngIf="slot != null"
+          *ngIf="slot != null; else emptySlot"
           [src]="
-            slot == 'Red'
+            slot == 'red'
               ? '/assets/images/counter-red-large.svg'
               : '/assets/images/counter-yellow-large.svg'
           "
           alt="Board"
         />
+        <ng-template #emptySlot>
+          <div class="empty-slot"></div>
+        </ng-template>
       </div>
       <img class="marker" [src]="'/assets/images/marker-red.svg'" alt="Board" />
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from '../game.service';
 
 type Player = 'Red' | 'Yellow' | null;
 
@@ -8,17 +9,9 @@ type Player = 'Red' | 'Yellow' | null;
   styleUrls: ['./game-board.component.scss'],
 })
 export class GameBoardComponent implements OnInit {
-  constructor() {}
+  constructor(public gameService: GameService) {}
 
-  ngOnInit(): void {}
-
-  public board: Player[][] = [
-    ['Yellow', 'Red', 'Yellow'],
-    ['Yellow', 'Red'],
-    ['Red', 'Yellow', 'Red', 'Yellow'],
-    ['Yellow', 'Red', 'Yellow', 'Red'],
-    ['Red', 'Yellow', 'Red', 'Yellow', 'Red', 'Yellow'],
-    ['Yellow', 'Red', 'Yellow', 'Red', 'Yellow', 'Red'],
-    ['Yellow', 'Red', 'Yellow', 'Red', 'Yellow', 'Red'],
-  ];
+  ngOnInit(): void {
+    this.gameService.initializeGame();
+  }
 }
